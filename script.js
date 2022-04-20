@@ -17,6 +17,7 @@ for (let index = 0; index < colorDiv.length; index += 1) {
   colorDiv[index].style.backgroundColor = rgbColors[index];
 }
 firstColor.style.backgroundColor = 'black';
+firstColor.className = 'color selected';
 
 // create coloring board
 const pixelBoard = document.getElementById('pixel-board');
