@@ -4,3 +4,10 @@
     padding: 30px;
     margin: 3px;
 }
+
+.pixel {
+    display: inline-block;
+    border: 1px solid black;
+    padding: 30px;
+    background-color: white;
+}
