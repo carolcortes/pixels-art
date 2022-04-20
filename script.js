@@ -8,7 +8,7 @@ for (let count = 0; count < 4; count += 1) {
   colorPallet.appendChild(colorDiv);
 }
 
-// set color
+// create colors
 const colorDiv = document.getElementsByClassName('color');
 const rgbColors = ['rgb(69, 41, 102)', 'rgb(152, 32, 101)', 'rgb(217, 91, 91)',
   'rgb(255, 180, 110)'];
@@ -33,4 +33,14 @@ for (let index = 0; index < line.length; index += 1) {
     pixelDiv.className = 'pixel';
     line[index].appendChild(pixelDiv);
   }
+}
+
+// select color
+function selectColor(event) {
+  const selectedColor = document.getElementsByClassName('selected');
+  selectedColor[0].classList.remove('selected');
+  event.target.classList.add('selected');
+}
+for (let index = 0; index < colorDiv.length; index += 1) {
+  colorDiv[index].addEventListener('click', selectColor);
 }
