@@ -47,11 +47,19 @@ for (let index = 0; index < colorDiv.length; index += 1) {
 
 // coloring the pixel board
 const pixel = document.getElementsByClassName('pixel');
+const selectedColor = document.getElementsByClassName('color selected');
 function coloring(event) {
-  event.target.style.backgroundColor = document.getElementsByClassName('color selected')[0].style.backgroundColor;
+  event.target.style.backgroundColor = selectedColor[0].style.backgroundColor;
 }
 for (let index = 0; index < pixel.length; index += 1) {
   pixel[index].addEventListener('click', coloring);
 }
 
 // clear the board
+const clearButton = document.getElementById('clear-board');
+function clearBoard() {
+  for (let index = 0; index < pixel.length; index += 1) {
+    pixel[index].style.backgroundColor = 'white';
+  }
+}
+clearButton.addEventListener('click', clearBoard);
