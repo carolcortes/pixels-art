@@ -44,3 +44,14 @@ function selectColor(event) {
 for (let index = 0; index < colorDiv.length; index += 1) {
   colorDiv[index].addEventListener('click', selectColor);
 }
+
+// coloring the pixel board
+const pixel = document.getElementsByClassName('pixel');
+function coloring(event) {
+  event.target.style.backgroundColor = document.getElementsByClassName('color selected')[0].style.backgroundColor;
+}
+for (let index = 0; index < pixel.length; index += 1) {
+  pixel[index].addEventListener('click', coloring);
+}
+
+// clear the board
