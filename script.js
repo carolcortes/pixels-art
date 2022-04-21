@@ -63,3 +63,5 @@ function clearBoard() {
   }
 }
 clearButton.addEventListener('click', clearBoard);
+
+// input button
