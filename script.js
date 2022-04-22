@@ -10,8 +10,8 @@ for (let count = 0; count < 4; count += 1) {
 
 // create colors
 const colorDiv = document.getElementsByClassName('color');
-const rgbColors = ['rgb(69, 41, 102)', 'rgb(152, 32, 101)', 'rgb(217, 91, 91)',
-  'rgb(255, 180, 110)'];
+const rgbColors = [`rgb(69, 41, ${Math.random() * 255})`, `rgb(152, 32, ${Math.random() * 255})`,
+  `rgb(217, 91, ${Math.random() * 255})`, `rgb(255, 180, ${Math.random() * 255}`];
 const firstColor = document.getElementsByClassName('color')[0];
 for (let index = 0; index < colorDiv.length; index += 1) {
   colorDiv[index].style.backgroundColor = rgbColors[index];
@@ -28,7 +28,7 @@ function removeBoard() {
   }
 }
 function boardConditions() {
-  if (input.value === '') {
+  if (input.value === null) {
     alert('Board inválido!');
   }
   if (input.value < 5) {
