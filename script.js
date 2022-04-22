@@ -20,18 +20,18 @@ firstColor.style.backgroundColor = 'black';
 firstColor.className = 'color selected';
 
 // create coloring board
-
 const input = document.getElementById('board-size');
 const pixelBoard = document.getElementById('pixel-board');
+
 function newBoard() {
   while (pixelBoard.childElementCount) {
     pixelBoard.removeChild(pixelBoard.lastElementChild);
   }
 }
+
 function createBoard() {
   newBoard();
   const inputValue = input.value;
-  console.log(inputValue);
   for (let line = 0; line < inputValue; line += 1) {
     const pixelLine = document.createElement('div');
     pixelLine.className = 'lines';
