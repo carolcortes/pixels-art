@@ -4,13 +4,10 @@ main {
 
 #title {
   text-align: center;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-
-
 .color {
-  display:inline-block;
+  display: inline-block;
   border: 1px solid black;
   padding: 23px;
   margin: 3px;
@@ -39,9 +36,5 @@ main {
 
 #board-size #generate-board {
   width: 100px;
-  height: 20px;
-}
-
-#generate-board {
   height: 20px;
 }
