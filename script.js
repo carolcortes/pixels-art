@@ -19,6 +19,18 @@ for (let index = 0; index < colorDiv.length; index += 1) {
 firstColor.style.backgroundColor = 'black';
 firstColor.className = 'color selected';
 
+// coloring the pixel board
+const pixel = document.getElementsByClassName('pixel');
+const selectedColor = document.getElementsByClassName('color selected');
+function coloring(event) {
+  event.target.style.backgroundColor = selectedColor[0].style.backgroundColor;
+}
+function listeningPixel() {
+  for (let index = 0; index < pixel.length; index += 1) {
+    pixel[index].addEventListener('click', coloring);
+  }
+}
+
 // create coloring board
 const input = document.getElementById('board-size');
 const pixelBoard = document.getElementById('pixel-board');
@@ -54,6 +66,7 @@ function createBoard() {
       line[index].appendChild(pixelDiv);
     }
   }
+  listeningPixel();
 }
 createBoard();
 
@@ -67,15 +80,6 @@ for (let index = 0; index < colorDiv.length; index += 1) {
   colorDiv[index].addEventListener('click', selectColor);
 }
 
-// coloring the pixel board
-const pixel = document.getElementsByClassName('pixel');
-const selectedColor = document.getElementsByClassName('color selected');
-function coloring(event) {
-  event.target.style.backgroundColor = selectedColor[0].style.backgroundColor;
-}
-for (let index = 0; index < pixel.length; index += 1) {
-  pixel[index].addEventListener('click', coloring);
-}
 
 // clear the board
 const clearButton = document.getElementById('clear-board');
