@@ -23,7 +23,8 @@ firstColor.className = 'color selected';
 const pixel = document.getElementsByClassName('pixel');
 const selectedColor = document.getElementsByClassName('color selected');
 function coloring(event) {
-  event.target.style.backgroundColor = selectedColor[0].style.backgroundColor;
+  const myEvent = event;
+  myEvent.target.style.backgroundColor = selectedColor[0].style.backgroundColor;
 }
 function listeningPixel() {
   for (let index = 0; index < pixel.length; index += 1) {
