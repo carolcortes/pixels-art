@@ -22,24 +22,33 @@ firstColor.className = 'color selected';
 // create coloring board
 const input = document.getElementById('board-size');
 const pixelBoard = document.getElementById('pixel-board');
-
-function newBoard() {
+function removeBoard() {
   while (pixelBoard.childElementCount) {
     pixelBoard.removeChild(pixelBoard.lastElementChild);
   }
 }
-
+function boardConditions() {
+  if (input.value === '') {
+    alert('Board inválido!');
+  }
+  if (input.value < 5) {
+    input.value = 5;
+  }
+  if (input.value > 50) {
+    input.value = 50;
+  }
+}
 function createBoard() {
-  newBoard();
-  const inputValue = input.value;
-  for (let line = 0; line < inputValue; line += 1) {
+  removeBoard();
+  boardConditions();
+  for (let line = 0; line < input.value; line += 1) {
     const pixelLine = document.createElement('div');
     pixelLine.className = 'lines';
     pixelBoard.appendChild(pixelLine);
   }
   const line = document.getElementsByClassName('lines');
   for (let index = 0; index < line.length; index += 1) {
-    for (let width = 0; width < inputValue; width += 1) {
+    for (let width = 0; width < input.value; width += 1) {
       const pixelDiv = document.createElement('div');
       pixelDiv.className = 'pixel';
       line[index].appendChild(pixelDiv);
