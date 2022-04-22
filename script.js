@@ -40,8 +40,8 @@ function removeBoard() {
   }
 }
 function boardConditions() {
-  if (input.value === null) {
-    alert('Board inválido!');
+  if (input.value === '') {
+    window.alert('Board inválido!');
   }
   if (input.value < 5) {
     input.value = 5;
@@ -50,17 +50,15 @@ function boardConditions() {
     input.value = 50;
   }
 }
-function createBoard() {
-  removeBoard();
-  boardConditions();
-  for (let line = 0; line < input.value; line += 1) {
+function createBoard(num) {
+  for (let line = 0; line < num; line += 1) {
     const pixelLine = document.createElement('div');
     pixelLine.className = 'lines';
     pixelBoard.appendChild(pixelLine);
   }
   const line = document.getElementsByClassName('lines');
   for (let index = 0; index < line.length; index += 1) {
-    for (let width = 0; width < input.value; width += 1) {
+    for (let width = 0; width < num; width += 1) {
       const pixelDiv = document.createElement('div');
       pixelDiv.className = 'pixel';
       line[index].appendChild(pixelDiv);
@@ -68,18 +66,22 @@ function createBoard() {
   }
   listeningPixel();
 }
-createBoard();
+createBoard(5);
+
+function newBoard() {
+  removeBoard();
+  boardConditions();
+  createBoard(input.value);
+}
 
 // select color
 function selectColor(event) {
-  const selectedColor = document.getElementsByClassName('selected');
   selectedColor[0].classList.remove('selected');
   event.target.classList.add('selected');
 }
 for (let index = 0; index < colorDiv.length; index += 1) {
   colorDiv[index].addEventListener('click', selectColor);
 }
-
 
 // clear the board
 const clearButton = document.getElementById('clear-board');
@@ -98,4 +100,4 @@ function setValue(event) {
 }
 
 input.addEventListener('input', setValue);
-generateBoard.addEventListener('click', createBoard);
+generateBoard.addEventListener('click', newBoard);
